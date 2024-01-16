@@ -31,7 +31,7 @@ const ordreScema = new Schema({
     status: {
         type: String,
         default: "booked up",
-        enum: ["booked up", "finished"]
+        enum: ["booked up", "confirmed", "finished"]
     }
 }, {
     toJSON: { virtuals: true },
