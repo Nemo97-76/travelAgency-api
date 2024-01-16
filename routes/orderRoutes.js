@@ -6,7 +6,7 @@ import { asyncHandler } from "../utilies/errorHandling.js";
 import * as OC from "../controllers/order/orderController.js"
 const orderRoutes = express.Router()
 orderRoutes.post("/", isAuth(), /* validationCoreFunction(validators.AddOrderSchema) */ asyncHandler(OC.AddOrder))
-orderRoutes.post("/success", isAuth(), asyncHandler(OC.successOrder))
-orderRoutes.delete("/cancel", isAuth(), validationCoreFunction(validators.cancelOrderSchema), asyncHandler(OC.cancelOrder))
+orderRoutes.post("/success/:token", isAuth(), asyncHandler(OC.successOrder))
+orderRoutes.delete("/cancel/:token", isAuth(), validationCoreFunction(validators.cancelOrderSchema), asyncHandler(OC.cancelOrder))
 
 export default orderRoutes
